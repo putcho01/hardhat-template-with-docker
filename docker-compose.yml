@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  hardhat_contracts:
+    container_name: hardhat_contracts
+    build: ./docker/hardhat_contracts
+    ports:
+      - 13040:3000
+    volumes:
+      - .:/contracts
+      - /contracts/node_modules
+    tty: true
+    environment:
+      - TZ=Asia/Tokyo
+    networks:
+      - default
+
+networks:
+  default:
